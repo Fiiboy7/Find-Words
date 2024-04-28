@@ -68,7 +68,6 @@ bool searchDiagonal(string word) {
     int cols = matrix[0].size();
     int len = word.size();
 
-    // Cari secara diagonal (maju)
     for (int i = 0; i <= rows - len; ++i) {
         for (int j = 0; j <= cols - len; ++j) {
             string diagString = "";
@@ -80,7 +79,6 @@ bool searchDiagonal(string word) {
         }
     }
 
-    // Cari secara diagonal (mundur)
     for (int i = 0; i <= rows - len; ++i) {
         for (int j = len - 1; j < cols; ++j) {
             string diagString = "";
