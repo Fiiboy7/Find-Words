@@ -44,3 +44,21 @@ bool searchHorizontal(string word) {
 
     return false;
 }
+bool searchVertical(string word) {
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+    int len = word.size();
+
+    for (int j = 0; j < cols; ++j) {
+        for (int i = 0; i <= rows - len; ++i) {
+            string colString = "";
+            for (int k = i; k < i + len; ++k) {
+                colString += matrix[k][j];
+            }
+            if (colString == word)
+                return true;
+        }
+    }
+
+    return false;
+}
