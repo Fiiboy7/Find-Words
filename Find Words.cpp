@@ -62,3 +62,39 @@ bool searchVertical(string word) {
 
     return false;
 }
+
+bool searchDiagonal(string word) {
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+    int len = word.size();
+
+    // Cari secara diagonal (maju)
+    for (int i = 0; i <= rows - len; ++i) {
+        for (int j = 0; j <= cols - len; ++j) {
+            string diagString = "";
+            for (int k = 0; k < len; ++k) {
+                diagString += matrix[i + k][j + k];
+            }
+            if (diagString == word)
+                return true;
+        }
+    }
+
+    // Cari secara diagonal (mundur)
+    for (int i = 0; i <= rows - len; ++i) {
+        for (int j = len - 1; j < cols; ++j) {
+            string diagString = "";
+            for (int k = 0; k < len; ++k) {
+                diagString += matrix[i + k][j - k];
+            }
+            if (diagString == word)
+                return true;
+        }
+    }
+
+    return false;
+}
+
+bool searchWord(string word) {
+    return searchHorizontal(word) || searchVertical(word) || searchDiagonal(word);
+}
